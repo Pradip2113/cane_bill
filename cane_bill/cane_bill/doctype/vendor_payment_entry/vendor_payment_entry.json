@@ -1,0 +1,236 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{date}-{payment_type}-{##}",
+ "creation": "2023-08-12 00:12:41.451844",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "season",
+  "date",
+  "column_break_4csz1",
+  "branch",
+  "time",
+  "column_break_vto4b",
+  "payment_type",
+  "column_break_ejram",
+  "document_name",
+  "column_break_zxoh6",
+  "bank",
+  "payment_type_doctype",
+  "section_break_d2osm",
+  "show_list",
+  "column_break_e58wv",
+  "select_all",
+  "column_break_lirjv",
+  "column_break_q5syp",
+  "column_break_af42t",
+  "column_break_pygsr",
+  "column_break_stuzf",
+  "section_break_lgdpt",
+  "vendor_amount_information",
+  "section_break_yynts",
+  "self_bank_transfer",
+  "section_break_nhkpy",
+  "different_bank_transfer_vpe",
+  "section_break_fr54l",
+  "total_amount_sbt",
+  "column_break_fj43z",
+  "total_amount_dbt",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "season",
+   "fieldtype": "Link",
+   "label": "Season",
+   "options": "Season"
+  },
+  {
+   "fieldname": "column_break_4csz1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "label": "Branch",
+   "options": "Branch"
+  },
+  {
+   "fieldname": "column_break_vto4b",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payment_type",
+   "fieldtype": "Select",
+   "label": "Payment Type",
+   "options": "\nCane Billing Payment\nH and T Advance Payment\nH and T Billing Payment\nLoan Payment"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Vendor Payment Entry",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ejram",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_zxoh6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_d2osm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "payment_type_doctype",
+   "fieldtype": "Link",
+   "label": "Payment Type Doctype",
+   "options": "DocType"
+  },
+  {
+   "depends_on": "eval:doc.payment_type !='Loan Payment' ;",
+   "fieldname": "document_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Document Name",
+   "options": "payment_type_doctype"
+  },
+  {
+   "fieldname": "vendor_amount_information",
+   "fieldtype": "Table",
+   "label": "Vendor Amount Information",
+   "options": "Child Vendor Payment Entry"
+  },
+  {
+   "fieldname": "show_list",
+   "fieldtype": "Button",
+   "label": "Show List"
+  },
+  {
+   "fieldname": "column_break_e58wv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "select_all",
+   "fieldtype": "Button",
+   "label": "Select All"
+  },
+  {
+   "fieldname": "section_break_lgdpt",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_lirjv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_q5syp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_af42t",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_pygsr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_stuzf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_nhkpy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "self_bank_transfer",
+   "fieldtype": "Table",
+   "label": "Self Bank Transfer VPE",
+   "options": "Self Bank Transfer VPE"
+  },
+  {
+   "fieldname": "section_break_yynts",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "different_bank_transfer_vpe",
+   "fieldtype": "Table",
+   "label": "Different Bank Transfer VPE",
+   "options": "Different Bank Transfer VPE"
+  },
+  {
+   "fieldname": "bank",
+   "fieldtype": "Link",
+   "label": "Bank",
+   "options": "Bank Master"
+  },
+  {
+   "fieldname": "total_amount_sbt",
+   "fieldtype": "Currency",
+   "label": "Total Amount Self Bank Transfer"
+  },
+  {
+   "fieldname": "total_amount_dbt",
+   "fieldtype": "Currency",
+   "label": "Total Amount Different Bank Transfer"
+  },
+  {
+   "fieldname": "section_break_fr54l",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_fj43z",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "default": "Now",
+   "fieldname": "time",
+   "fieldtype": "Time",
+   "label": "Time"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-08-26 13:01:58.190470",
+ "modified_by": "Administrator",
+ "module": "cane_bill",
+ "name": "Vendor Payment Entry",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

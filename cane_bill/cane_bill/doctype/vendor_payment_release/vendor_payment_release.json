@@ -1,0 +1,224 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2023-08-17 16:03:41.361994",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "season",
+  "column_break_vto4b",
+  "bank",
+  "column_break_tlukg",
+  "branch",
+  "column_break_0nqt2",
+  "date",
+  "column_break_zykyj",
+  "time",
+  "section_break_d2osm",
+  "vpe_table",
+  "section_break_mgafb",
+  "show_list",
+  "column_break_e58wv",
+  "select_all",
+  "column_break_lirjv",
+  "column_break_q5syp",
+  "column_break_af42t",
+  "column_break_pygsr",
+  "column_break_stuzf",
+  "section_break_lgdpt",
+  "vendor_amount_information",
+  "section_break_yynts",
+  "self_bank_transfer",
+  "section_break_nhkpy",
+  "different_bank_transfer_vpe",
+  "section_break_fr54l",
+  "total_amount_sbt",
+  "column_break_fj43z",
+  "total_amount_dbt",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "season",
+   "fieldtype": "Link",
+   "label": "Season",
+   "options": "Season"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "label": "Branch",
+   "options": "Branch"
+  },
+  {
+   "fieldname": "column_break_vto4b",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bank",
+   "fieldtype": "Link",
+   "label": "Bank",
+   "options": "Bank Master"
+  },
+  {
+   "fieldname": "section_break_d2osm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "show_list",
+   "fieldtype": "Button",
+   "label": "Show List"
+  },
+  {
+   "fieldname": "column_break_e58wv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "select_all",
+   "fieldtype": "Button",
+   "label": "Select All"
+  },
+  {
+   "fieldname": "column_break_lirjv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_q5syp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_af42t",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_pygsr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_stuzf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_lgdpt",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "vendor_amount_information",
+   "fieldtype": "Table",
+   "label": "Vendor Amount Information",
+   "options": "Child Vendor Payment Release"
+  },
+  {
+   "fieldname": "section_break_yynts",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "self_bank_transfer",
+   "fieldtype": "Table",
+   "label": "Self Bank Transfer VPE",
+   "options": "Self Bank Transfer VPV"
+  },
+  {
+   "fieldname": "section_break_nhkpy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "different_bank_transfer_vpe",
+   "fieldtype": "Table",
+   "label": "Different Bank Transfer VPE",
+   "options": "Different Bank Transfer VPV"
+  },
+  {
+   "fieldname": "section_break_fr54l",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_amount_sbt",
+   "fieldtype": "Currency",
+   "label": "Total Amount Self Bank Transfer"
+  },
+  {
+   "fieldname": "column_break_fj43z",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_amount_dbt",
+   "fieldtype": "Currency",
+   "label": "Total Amount Different Bank Transfer"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Vendor Payment Release",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "vpe_table",
+   "fieldtype": "Table",
+   "label": "Select Your Vendor Payment Entry",
+   "options": "Child Vendor Payment Entry Holder"
+  },
+  {
+   "fieldname": "section_break_mgafb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_tlukg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_0nqt2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_zykyj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Now",
+   "fieldname": "time",
+   "fieldtype": "Time",
+   "label": "Time"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-08-26 11:42:07.431932",
+ "modified_by": "Administrator",
+ "module": "cane_bill",
+ "name": "Vendor Payment Release",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

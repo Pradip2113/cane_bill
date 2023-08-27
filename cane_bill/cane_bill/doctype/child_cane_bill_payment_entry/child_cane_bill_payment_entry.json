@@ -1,0 +1,225 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-07-12 15:07:06.647528",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "farmer_id",
+  "column_break_qqg5r",
+  "farmer_name",
+  "column_break_labgc",
+  "village",
+  "section_break_p8yy3",
+  "total_weight",
+  "column_break_s0jre",
+  "rate_kg",
+  "column_break_7nloh",
+  "total_collection_amount",
+  "column_break_kdooc",
+  "column_break_1nud0",
+  "section_break_8surf",
+  "sales_invoice_deduction",
+  "column_break_p8rs3",
+  "lone_deduction",
+  "column_break_qx7jy",
+  "loan_interest_deduction",
+  "column_break_s81gp",
+  "total_deduction",
+  "column_break_zvmnv",
+  "section_break_ubtuk",
+  "column_break_wrbrt",
+  "column_break_ijplf",
+  "column_break_hfb7a",
+  "total_payable_amount",
+  "column_break_vlj8w",
+  "column_break_dfxql",
+  "section_break_lbuoi",
+  "sales_invoice_information",
+  "farmer_loan_information",
+  "farmer_loan_interest_information",
+  "journal_entry_id",
+  "today"
+ ],
+ "fields": [
+  {
+   "fieldname": "farmer_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Farmer ID"
+  },
+  {
+   "fieldname": "column_break_qqg5r",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "farmer_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Farmer Name"
+  },
+  {
+   "fieldname": "column_break_labgc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "village",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Village"
+  },
+  {
+   "fieldname": "section_break_p8yy3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_weight",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Total Weight (kg)"
+  },
+  {
+   "fieldname": "column_break_s0jre",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rate_kg",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Rate / KG"
+  },
+  {
+   "fieldname": "column_break_7nloh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_collection_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Collection Amount (Rs)"
+  },
+  {
+   "fieldname": "column_break_kdooc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_1nud0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_8surf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "sales_invoice_deduction",
+   "fieldtype": "Currency",
+   "label": "Sales Invoice Deduction"
+  },
+  {
+   "fieldname": "column_break_p8rs3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lone_deduction",
+   "fieldtype": "Currency",
+   "label": "Lone Deduction"
+  },
+  {
+   "fieldname": "column_break_qx7jy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "loan_interest_deduction",
+   "fieldtype": "Currency",
+   "label": "Loan Interest Deduction"
+  },
+  {
+   "fieldname": "column_break_s81gp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_deduction",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Deduction (Rs)"
+  },
+  {
+   "fieldname": "column_break_zvmnv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_ubtuk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_wrbrt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ijplf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_hfb7a",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_payable_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Payable Amount (Rs)"
+  },
+  {
+   "fieldname": "column_break_vlj8w",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_dfxql",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_lbuoi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "sales_invoice_information",
+   "fieldtype": "Small Text",
+   "label": "Sales Invoice Information"
+  },
+  {
+   "fieldname": "farmer_loan_information",
+   "fieldtype": "Small Text",
+   "label": "Farmer Loan Information"
+  },
+  {
+   "fieldname": "farmer_loan_interest_information",
+   "fieldtype": "Small Text",
+   "label": "Farmer Loan Interest Information"
+  },
+  {
+   "fieldname": "journal_entry_id",
+   "fieldtype": "Data",
+   "label": "Journal Entry ID"
+  },
+  {
+   "default": "Today",
+   "fieldname": "today",
+   "fieldtype": "Date",
+   "label": "Today"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-07-12 15:07:06.647528",
+ "modified_by": "Administrator",
+ "module": "cane_bill",
+ "name": "Child Cane Bill Payment Entry",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

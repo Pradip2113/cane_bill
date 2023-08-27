@@ -1,0 +1,153 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2023-08-23 14:16:57.487080",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "season",
+  "column_break_dctsi",
+  "branch",
+  "column_break_sda8b",
+  "vendor_payment_release",
+  "column_break_zsobc",
+  "bank",
+  "column_break_no5wn",
+  "date",
+  "time",
+  "section_break_kjzbw",
+  "show_list",
+  "section_break_sveap",
+  "vendor_check_info",
+  "sub_button",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "season",
+   "fieldtype": "Link",
+   "label": "Season",
+   "options": "Season"
+  },
+  {
+   "fieldname": "column_break_dctsi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "label": "Branch",
+   "options": "Branch"
+  },
+  {
+   "fieldname": "column_break_sda8b",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vendor_payment_release",
+   "fieldtype": "Link",
+   "label": "Vendor Payment Release",
+   "options": "Vendor Payment Release"
+  },
+  {
+   "fieldname": "column_break_zsobc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "options": "Today"
+  },
+  {
+   "fieldname": "column_break_no5wn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bank",
+   "fieldtype": "Link",
+   "label": "Bank ",
+   "options": "Bank Master"
+  },
+  {
+   "fieldname": "section_break_kjzbw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "show_list",
+   "fieldtype": "Button",
+   "label": "Show List"
+  },
+  {
+   "fieldname": "section_break_sveap",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "vendor_check_info",
+   "fieldtype": "Table",
+   "label": "Vendor Check Info",
+   "options": "Child Vendor Cheque Release"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Vendor Cheque Release",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Vendor Cheque Release",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "sub_button",
+   "fieldtype": "Button",
+   "label": "sub_button"
+  },
+  {
+   "default": "Now",
+   "fieldname": "time",
+   "fieldtype": "Time",
+   "label": "Time"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-08-26 11:45:22.731946",
+ "modified_by": "Administrator",
+ "module": "cane_bill",
+ "name": "Vendor Cheque Release",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

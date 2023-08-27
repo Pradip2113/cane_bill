@@ -1,0 +1,143 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-08-17 16:36:24.003320",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "vendor_id",
+  "column_break_yycwk",
+  "vendor_name",
+  "column_break_ukomz",
+  "address",
+  "column_break_rmsnb",
+  "total_amount",
+  "column_break_zwwe6",
+  "payment_type",
+  "type",
+  "contract_id",
+  "check",
+  "section_break_ik4nc",
+  "acc_details",
+  "account_details",
+  "bank_name",
+  "doc_name",
+  "cheque_release_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "vendor_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vendor ID",
+   "options": "Farmer List"
+  },
+  {
+   "fieldname": "column_break_yycwk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vendor_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Vendor Name"
+  },
+  {
+   "fieldname": "column_break_ukomz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "vendor_id.village",
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Address"
+  },
+  {
+   "fieldname": "column_break_rmsnb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Amount"
+  },
+  {
+   "fieldname": "column_break_zwwe6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Small Text",
+   "label": "Type"
+  },
+  {
+   "fieldname": "contract_id",
+   "fieldtype": "Small Text",
+   "label": "Contract ID"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "check",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Check"
+  },
+  {
+   "fieldname": "section_break_ik4nc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "account_details",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Account Details List"
+  },
+  {
+   "fetch_from": "account_details.bank_name",
+   "fieldname": "bank_name",
+   "fieldtype": "Small Text",
+   "label": "Bank Name List"
+  },
+  {
+   "fieldname": "doc_name",
+   "fieldtype": "Small Text",
+   "label": "Doc Name"
+  },
+  {
+   "fieldname": "payment_type",
+   "fieldtype": "Small Text",
+   "label": "Payment Type"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "acc_details",
+   "fieldtype": "Link",
+   "label": "Account",
+   "options": "Bank Master"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "cheque_release_status",
+   "fieldtype": "Check",
+   "label": "Cheque Release Status"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-08-25 16:57:57.298130",
+ "modified_by": "Administrator",
+ "module": "cane_bill",
+ "name": "Child Vendor Payment Release",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

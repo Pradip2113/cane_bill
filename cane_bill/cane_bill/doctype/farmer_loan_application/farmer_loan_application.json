@@ -1,0 +1,428 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "VPPL-LOAP-.YYYY.-.#####",
+ "creation": "2023-06-20 10:57:48.420025",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "season",
+  "applicant",
+  "column_break_vs8zz",
+  "posting_date",
+  "applicant_name",
+  "total_area_in_acrs",
+  "column_break_1ddzr",
+  "status",
+  "address",
+  "branch",
+  "column_break_ggc1l",
+  "loan_type",
+  "loan_amount",
+  "column_break_8xm3o",
+  "rate_of_interest",
+  "repayment_period_in_years",
+  "maximum_amount",
+  "repayment_method",
+  "bank_details_section",
+  "farmer_bank_name",
+  "column_break_uy67m",
+  "farmer_bank_branch",
+  "column_break_yckuv",
+  "framer_bank_ifsc_code",
+  "column_break_yrbjv",
+  "farmer_account_number",
+  "section_break_nq6ai",
+  "plot_table",
+  "column_break_eaaxs",
+  "installments_table",
+  "section_break_xjjav",
+  "column_break_woqlj",
+  "amended_from",
+  "sample",
+  "payment_status",
+  "section_break_jt2j7",
+  "grantor",
+  "column_break_lamh9",
+  "drip_irrigation_company",
+  "bank_name",
+  "column_break_gpzwt",
+  "ifsc_code",
+  "account_number",
+  "account_paid_to",
+  "account_paid_from",
+  "account_interest_paid_to",
+  "section_break_dvtuz",
+  "agreement_copy",
+  "column_break_62ktl",
+  "pan_details",
+  "column_break_vfumt",
+  "account_details",
+  "column_break_gwflb",
+  "column_break_r2gn2",
+  "column_break_f1ep0",
+  "payment_flag"
+ ],
+ "fields": [
+  {
+   "fieldname": "applicant",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Applicant",
+   "options": "Farmer List",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "applicant.supplier_name",
+   "fieldname": "applicant_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Applicant Name"
+  },
+  {
+   "fetch_from": "applicant.branch",
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "label": "Branch",
+   "options": "Branch",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "applicant.village",
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address"
+  },
+  {
+   "fieldname": "column_break_1ddzr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "no_copy": 1,
+   "options": "Open\nApproved\nRejected"
+  },
+  {
+   "fieldname": "season",
+   "fieldtype": "Link",
+   "label": "Posting Season",
+   "options": "Season",
+   "reqd": 1
+  },
+  {
+   "fieldname": "loan_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Loan Type",
+   "options": "Farmer Loan Type",
+   "reqd": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "loan_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Loan Amount",
+   "options": "Company:company:default_currency"
+  },
+  {
+   "fieldname": "column_break_8xm3o",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rate_of_interest",
+   "fieldtype": "Percent",
+   "label": "Rate of Interest"
+  },
+  {
+   "fieldname": "repayment_period_in_years",
+   "fieldtype": "Data",
+   "label": "Repayment Period in Years"
+  },
+  {
+   "fetch_from": "loan_type.maximum_loan_amount",
+   "fieldname": "maximum_amount",
+   "fieldtype": "Currency",
+   "hidden": 1,
+   "label": "Maximum Amount"
+  },
+  {
+   "fieldname": "repayment_method",
+   "fieldtype": "Select",
+   "label": "Repayment Method",
+   "options": "Deduction From Cane Bill"
+  },
+  {
+   "fieldname": "section_break_xjjav",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "loan_type.account_paid_from",
+   "fieldname": "account_paid_from",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Account Paid From",
+   "options": "Account"
+  },
+  {
+   "fieldname": "column_break_eaaxs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "loan_type.account_paid_to",
+   "fieldname": "account_paid_to",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Account Paid To",
+   "options": "Account"
+  },
+  {
+   "fetch_from": "loan_type.account_interest_paid_to",
+   "fieldname": "account_interest_paid_to",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Account interest Paid To",
+   "options": "Account"
+  },
+  {
+   "fieldname": "section_break_nq6ai",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "installments_table",
+   "fieldtype": "Table",
+   "label": "Installments Table",
+   "options": "Child Farmer Loan Application"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Farmer Loan Application",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "sample",
+   "fieldtype": "Button",
+   "hidden": 1,
+   "label": "sample"
+  },
+  {
+   "fieldname": "column_break_vs8zz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "payment_status",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Payment Status"
+  },
+  {
+   "fieldname": "column_break_woqlj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ggc1l",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_area_in_acrs",
+   "fieldtype": "Float",
+   "label": "Total Area in Acrs(\u090f\u0915\u0930 \u0915\u094d\u0937\u0947\u0924\u094d\u0930)",
+   "precision": "2"
+  },
+  {
+   "fieldname": "section_break_jt2j7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "grantor",
+   "fieldtype": "Table",
+   "label": "Grantor ",
+   "options": "Contract Surety"
+  },
+  {
+   "fieldname": "column_break_lamh9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_gpzwt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "plot_table",
+   "fieldtype": "Table",
+   "label": "Plot Table",
+   "options": "Child Farmer List Application For Plots"
+  },
+  {
+   "fieldname": "drip_irrigation_company",
+   "fieldtype": "Link",
+   "label": "Drip Irrigation Company",
+   "options": "Drip Irrigation Company"
+  },
+  {
+   "fetch_from": "drip_irrigation_company.bank_name",
+   "fieldname": "bank_name",
+   "fieldtype": "Data",
+   "label": "Bank Name"
+  },
+  {
+   "fetch_from": "drip_irrigation_company.ifsc_code",
+   "fieldname": "ifsc_code",
+   "fieldtype": "Data",
+   "label": "IFSC Code"
+  },
+  {
+   "fetch_from": "drip_irrigation_company.account_number",
+   "fieldname": "account_number",
+   "fieldtype": "Data",
+   "label": "Account Number"
+  },
+  {
+   "fieldname": "section_break_dvtuz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "agreement_copy",
+   "fieldtype": "Attach",
+   "label": "Agreement Copy"
+  },
+  {
+   "fieldname": "column_break_62ktl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pan_details",
+   "fieldtype": "Attach",
+   "label": "PAN Details"
+  },
+  {
+   "fieldname": "column_break_vfumt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "account_details",
+   "fieldtype": "Attach",
+   "label": "Account Details"
+  },
+  {
+   "fieldname": "column_break_gwflb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_r2gn2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_f1ep0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bank_details_section",
+   "fieldtype": "Section Break",
+   "label": "Bank Details"
+  },
+  {
+   "fieldname": "farmer_bank_name",
+   "fieldtype": "Link",
+   "label": "Farmer Bank Name",
+   "options": "Bank Master"
+  },
+  {
+   "fetch_from": "farmer_bank_name.ifsc_code",
+   "fieldname": "framer_bank_ifsc_code",
+   "fieldtype": "Data",
+   "label": "Farmer Bank IFSC Code"
+  },
+  {
+   "fieldname": "farmer_account_number",
+   "fieldtype": "Data",
+   "label": "Farmer Account Number"
+  },
+  {
+   "fieldname": "farmer_bank_branch",
+   "fieldtype": "Link",
+   "label": "Farmer Bank Branch",
+   "options": "Bank Master"
+  },
+  {
+   "fieldname": "column_break_uy67m",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_yckuv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_yrbjv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "payment_flag",
+   "fieldtype": "Check",
+   "label": "Payment Flag",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-08-26 13:37:10.547209",
+ "modified_by": "Administrator",
+ "module": "cane_bill",
+ "name": "Farmer Loan Application",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

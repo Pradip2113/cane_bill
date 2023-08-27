@@ -1,0 +1,293 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format: LOAN-{applicant_id}-{YYYY}-{####}",
+ "creation": "2023-06-20 11:34:41.634126",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "applicant_id",
+  "application",
+  "column_break_cpyy8",
+  "applicant_name",
+  "applicant_type",
+  "address",
+  "column_break_1ddzr",
+  "mobile_no",
+  "branch",
+  "season",
+  "section_break_gau3t",
+  "status",
+  "column_break_zm8sv",
+  "posting_date",
+  "column_break_vqxeu",
+  "section_break_sgt1v",
+  "reference_no",
+  "column_break_zufyt",
+  "reference_date",
+  "section_break_vqi4w",
+  "account_paid_from",
+  "column_break_8xm3o",
+  "account_paid_to",
+  "account_interest_paid_to",
+  "loan_details_section",
+  "farmer_loan_type",
+  "loan_amount",
+  "disbursemented_amount",
+  "disbursement_amount",
+  "column_break_tk1ek",
+  "rate_of_interest",
+  "period_for_repayment",
+  "section_break_nq6ai",
+  "installment_table",
+  "payment_entry_id",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "applicant_id",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "label": "Applicant ID",
+   "options": "Farmer List"
+  },
+  {
+   "fetch_from": "applicant.supplier_name",
+   "fieldname": "application",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "label": "Application",
+   "options": "Farmer Loan Application"
+  },
+  {
+   "fieldname": "column_break_cpyy8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "applicant_id.supplier_name",
+   "fieldname": "applicant_name",
+   "fieldtype": "Data",
+   "label": "Applicant Name"
+  },
+  {
+   "fetch_from": "applicant_id.supplier_group",
+   "fieldname": "applicant_type",
+   "fieldtype": "Data",
+   "label": "Applicant Type"
+  },
+  {
+   "fetch_from": "applicant_id.village",
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address"
+  },
+  {
+   "fieldname": "column_break_1ddzr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "applicant_id.mobile_number",
+   "fieldname": "mobile_no",
+   "fieldtype": "Data",
+   "label": "Mobile No"
+  },
+  {
+   "fetch_from": "applicant_id.branch",
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "label": "Branch",
+   "options": "Branch"
+  },
+  {
+   "fieldname": "season",
+   "fieldtype": "Link",
+   "label": "Season",
+   "options": "Season"
+  },
+  {
+   "fieldname": "section_break_gau3t",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "application.status",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Open\nApproved\nRejected"
+  },
+  {
+   "fieldname": "column_break_zm8sv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "column_break_vqxeu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_sgt1v",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "reference_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Cheque/Reference No",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_zufyt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reference_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Cheque/Reference Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_vqi4w",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "application.account_paid_from",
+   "fieldname": "account_paid_from",
+   "fieldtype": "Link",
+   "label": "Account Paid From",
+   "options": "Account"
+  },
+  {
+   "fieldname": "column_break_8xm3o",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "application.account_paid_to",
+   "fieldname": "account_paid_to",
+   "fieldtype": "Link",
+   "label": "Account Paid To",
+   "options": "Account"
+  },
+  {
+   "fetch_from": "application.account_interest_paid_to",
+   "fieldname": "account_interest_paid_to",
+   "fieldtype": "Link",
+   "label": "Account interest Paid To",
+   "options": "Account"
+  },
+  {
+   "fieldname": "loan_details_section",
+   "fieldtype": "Section Break",
+   "label": "Loan Details"
+  },
+  {
+   "fetch_from": "application.loan_type",
+   "fieldname": "farmer_loan_type",
+   "fieldtype": "Link",
+   "label": "Farmer Loan Type",
+   "options": "Farmer Loan Type"
+  },
+  {
+   "fetch_from": "application.loan_amount",
+   "fieldname": "loan_amount",
+   "fieldtype": "Data",
+   "label": "Loan Amount"
+  },
+  {
+   "fetch_from": "application.rate_of_interest",
+   "fieldname": "rate_of_interest",
+   "fieldtype": "Data",
+   "label": "Rate of Interest (%) Yearly"
+  },
+  {
+   "fieldname": "column_break_tk1ek",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_nq6ai",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Farmer Loan",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Farmer Loan",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "disbursemented_amount",
+   "fieldtype": "Data",
+   "label": "Disbursemented Amount"
+  },
+  {
+   "fieldname": "disbursement_amount",
+   "fieldtype": "Data",
+   "label": "Disbursement amount"
+  },
+  {
+   "fetch_from": "application.repayment_period_in_years",
+   "fieldname": "period_for_repayment",
+   "fieldtype": "Data",
+   "label": "Period For Repayment(In Year)"
+  },
+  {
+   "fieldname": "payment_entry_id",
+   "fieldtype": "Data",
+   "label": "Payment Entry ID "
+  },
+  {
+   "fieldname": "installment_table",
+   "fieldtype": "Table",
+   "label": "Installment Table",
+   "options": "Child Farmer Loan"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-06-20 16:18:51.002501",
+ "modified_by": "Administrator",
+ "module": "cane_bill",
+ "name": "Farmer Loan",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

@@ -1,0 +1,100 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-08-17 16:48:45.662430",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "vendor_id",
+  "column_break_yycwk",
+  "vendor_name",
+  "column_break_ukomz",
+  "address",
+  "column_break_rmsnb",
+  "total_amount",
+  "column_break_zwwe6",
+  "section_break_ik4nc",
+  "account_details",
+  "select_account",
+  "bank_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "vendor_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vendor ID",
+   "options": "Farmer List"
+  },
+  {
+   "fieldname": "column_break_yycwk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vendor_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Vendor Name"
+  },
+  {
+   "fieldname": "column_break_ukomz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "vendor_id.village",
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Address"
+  },
+  {
+   "fieldname": "column_break_rmsnb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Amount"
+  },
+  {
+   "fieldname": "column_break_zwwe6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_ik4nc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "account_details",
+   "fieldtype": "Data",
+   "label": "Account Details List"
+  },
+  {
+   "fetch_from": "account_details.bank_name",
+   "fieldname": "bank_name",
+   "fieldtype": "Data",
+   "label": "Bank Name"
+  },
+  {
+   "fieldname": "select_account",
+   "fieldtype": "Link",
+   "label": "Select Account",
+   "options": "Bank Master"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-08-17 19:08:26.879048",
+ "modified_by": "Administrator",
+ "module": "cane_bill",
+ "name": "Self Bank Transfer VPV",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

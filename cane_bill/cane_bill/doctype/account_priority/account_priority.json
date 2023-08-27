@@ -1,0 +1,67 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-06-20 12:26:58.824500",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "column_break_bgoed",
+  "debit_in_account_currency",
+  "section_break_vatqq",
+  "priority_table"
+ ],
+ "fields": [
+  {
+   "fieldname": "priority_table",
+   "fieldtype": "Table",
+   "label": "Priority Table",
+   "options": "Account Priority Child"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "column_break_bgoed",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "debit_in_account_currency",
+   "fieldtype": "Link",
+   "label": "Debit In Account Currency",
+   "options": "Account"
+  },
+  {
+   "fieldname": "section_break_vatqq",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2023-06-20 17:24:25.970874",
+ "modified_by": "Administrator",
+ "module": "cane_bill",
+ "name": "Account Priority",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

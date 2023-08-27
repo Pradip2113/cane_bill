@@ -1,0 +1,277 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{farmer_code}-{#####}",
+ "creation": "2023-07-19 12:32:00.725487",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "season",
+  "column_break_zxhvr",
+  "date",
+  "column_break_mkcx8",
+  "branch",
+  "section_break_nvqw4",
+  "farmer_code",
+  "column_break_e8o7p",
+  "farmer_name",
+  "column_break_tvnfr",
+  "circle_office",
+  "column_break_lymcw",
+  "village",
+  "section_break_emhis",
+  "vender_type",
+  "column_break_2loh5",
+  "h_and_t_contract_id",
+  "column_break_jsxwk",
+  "section_break_ak5z0",
+  "deduction_name",
+  "deduction_amount",
+  "paid_amount",
+  "column_break_iroq7",
+  "description",
+  "account",
+  "deduction_status",
+  "amended_from",
+  "farmer_loan_information_section",
+  "farmer_application_loan_id",
+  "farmer_application_loan_id_child",
+  "column_break_s8xvz",
+  "rate_of_interest",
+  "interest_calculate_on_amount",
+  "column_break_lrygw",
+  "from_date_interest_calculation",
+  "update_from_date_interest_calculation",
+  "interest_account"
+ ],
+ "fields": [
+  {
+   "fieldname": "season",
+   "fieldtype": "Link",
+   "label": "Season",
+   "options": "Season"
+  },
+  {
+   "fieldname": "farmer_code",
+   "fieldtype": "Link",
+   "label": "Farmer Code",
+   "options": "Farmer List"
+  },
+  {
+   "fetch_from": "farmer_code.supplier_name",
+   "fieldname": "farmer_name",
+   "fieldtype": "Data",
+   "label": "Farmer Name"
+  },
+  {
+   "fetch_from": "farmer_code.branch",
+   "fieldname": "circle_office",
+   "fieldtype": "Data",
+   "label": "Circle Office"
+  },
+  {
+   "fetch_from": "farmer_code.village",
+   "fieldname": "village",
+   "fieldtype": "Data",
+   "label": "Village"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "deduction_name",
+   "fieldtype": "Link",
+   "label": "Deduction Name",
+   "options": "Deduction Type"
+  },
+  {
+   "fetch_from": "deduction_name.description",
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "deduction_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Deduction Amount",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "deduction_name.account",
+   "fieldname": "account",
+   "fieldtype": "Data",
+   "label": "Account"
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "label": "Branch",
+   "options": "Branch"
+  },
+  {
+   "fieldname": "column_break_mkcx8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_nvqw4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_e8o7p",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_tvnfr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_lymcw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_iroq7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_zxhvr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Deduction Form",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_emhis",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "paid_amount",
+   "fieldtype": "Currency",
+   "label": "Paid Amount",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "deduction_status",
+   "fieldtype": "Int",
+   "label": "Deduction Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "farmer_loan_information_section",
+   "fieldtype": "Section Break",
+   "label": "Farmer Loan Information"
+  },
+  {
+   "fieldname": "farmer_application_loan_id",
+   "fieldtype": "Data",
+   "label": "farmer Application loan id"
+  },
+  {
+   "fieldname": "farmer_application_loan_id_child",
+   "fieldtype": "Data",
+   "label": "farmer Application loan id Child"
+  },
+  {
+   "fieldname": "column_break_s8xvz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rate_of_interest",
+   "fieldtype": "Percent",
+   "label": "Rate of Interest"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "from_date_interest_calculation",
+   "fieldtype": "Date",
+   "label": "From Date Interest Calculation"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "update_from_date_interest_calculation",
+   "fieldtype": "Date",
+   "label": "Update From Date Interest Calculation"
+  },
+  {
+   "fieldname": "interest_calculate_on_amount",
+   "fieldtype": "Currency",
+   "label": "Interest Calculate On Amount"
+  },
+  {
+   "fieldname": "column_break_lrygw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "interest_account",
+   "fieldtype": "Data",
+   "label": "interest Account"
+  },
+  {
+   "fieldname": "vender_type",
+   "fieldtype": "Select",
+   "label": "Vender Type",
+   "options": "Farmer\nH and T",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_2loh5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval: doc.vender_type =='H and T'",
+   "fieldname": "h_and_t_contract_id",
+   "fieldtype": "Data",
+   "label": "H and T Contract Id"
+  },
+  {
+   "fieldname": "section_break_ak5z0",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_jsxwk",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-08-08 18:23:37.706666",
+ "modified_by": "Administrator",
+ "module": "cane_bill",
+ "name": "Deduction Form",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

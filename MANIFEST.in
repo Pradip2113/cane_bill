@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include cane_bill *.css
+recursive-include cane_bill *.csv
+recursive-include cane_bill *.html
+recursive-include cane_bill *.ico
+recursive-include cane_bill *.js
+recursive-include cane_bill *.json
+recursive-include cane_bill *.md
+recursive-include cane_bill *.png
+recursive-include cane_bill *.py
+recursive-include cane_bill *.svg
+recursive-include cane_bill *.txt
+recursive-exclude cane_bill *.pyc

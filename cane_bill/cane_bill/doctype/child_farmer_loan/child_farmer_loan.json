@@ -1,0 +1,134 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-06-20 11:44:27.831552",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "season",
+  "section_break_emcpe",
+  "installment",
+  "column_break_j29kl",
+  "paid_installment",
+  "column_break_av1d4",
+  "interest",
+  "section_break_xam2y",
+  "rate_of_interest",
+  "column_break_3owc8",
+  "from_date_interest_calculation",
+  "column_break_sgbrj",
+  "update_from_date_interest_calculation",
+  "column_break_lpmiz",
+  "interest_calculate_on_amount",
+  "section_break_5gyei",
+  "installment_status",
+  "column_break_xdxvt",
+  "interest_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "season",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Season"
+  },
+  {
+   "fieldname": "installment",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Installment"
+  },
+  {
+   "fieldname": "rate_of_interest",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Rate of Interest"
+  },
+  {
+   "fieldname": "interest",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Interest"
+  },
+  {
+   "fieldname": "installment_status",
+   "fieldtype": "Data",
+   "label": "Installment Status"
+  },
+  {
+   "fieldname": "interest_status",
+   "fieldtype": "Data",
+   "label": "Interest Status"
+  },
+  {
+   "fieldname": "from_date_interest_calculation",
+   "fieldtype": "Date",
+   "label": "From Date Interest Calculation"
+  },
+  {
+   "fieldname": "interest_calculate_on_amount",
+   "fieldtype": "Currency",
+   "label": "Interest Calculate On Amount"
+  },
+  {
+   "fieldname": "paid_installment",
+   "fieldtype": "Currency",
+   "label": "Paid Installment"
+  },
+  {
+   "fieldname": "section_break_emcpe",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_j29kl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_av1d4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_xam2y",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_3owc8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_sgbrj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "update_from_date_interest_calculation",
+   "fieldtype": "Date",
+   "label": "Update From Date Interest Calculation"
+  },
+  {
+   "fieldname": "column_break_lpmiz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_5gyei",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_xdxvt",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-06-30 16:38:05.128138",
+ "modified_by": "Administrator",
+ "module": "cane_bill",
+ "name": "Child Farmer Loan",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

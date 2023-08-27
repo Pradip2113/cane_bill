@@ -1,0 +1,185 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-07-28 17:53:38.768349",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "season",
+  "column_break_kxooi",
+  "branch",
+  "column_break_xfdo4",
+  "posting_date",
+  "column_break_dp04k",
+  "account_credit_to",
+  "column_break_olgdt",
+  "column_break_egu63",
+  "section_break_tvntw",
+  "show_list",
+  "column_break_ltggp",
+  "select_all",
+  "column_break_iiyzt",
+  "column_break_lbeet",
+  "column_break_6xsok",
+  "column_break_11xmj",
+  "column_break_u1rfk",
+  "section_break_9b6ow",
+  "applicant_list",
+  "net_total_payable_amount",
+  "journal_entry_id",
+  "amended_from",
+  "press"
+ ],
+ "fields": [
+  {
+   "fieldname": "season",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Season",
+   "options": "Season",
+   "reqd": 1
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Branch",
+   "options": "Branch",
+   "reqd": 1
+  },
+  {
+   "fieldname": "show_list",
+   "fieldtype": "Button",
+   "label": "Show List"
+  },
+  {
+   "fieldname": "applicant_list",
+   "fieldtype": "Table",
+   "label": "Applicant List",
+   "options": "Child Loan Applicant Payment"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Loan Applicant Payment",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_kxooi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_xfdo4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_dp04k",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_olgdt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_egu63",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_tvntw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_ltggp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "select_all",
+   "fieldtype": "Button",
+   "label": "Select All"
+  },
+  {
+   "fieldname": "column_break_iiyzt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_lbeet",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_6xsok",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_11xmj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_9b6ow",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_u1rfk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "press",
+   "fieldtype": "Button",
+   "label": "Press"
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "account_credit_to",
+   "fieldtype": "Link",
+   "label": "Bank(Account Credit to)",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "net_total_payable_amount",
+   "fieldtype": "Currency",
+   "label": "Net Total Payable Amount"
+  },
+  {
+   "fieldname": "journal_entry_id",
+   "fieldtype": "Data",
+   "label": "Journal Entry ID"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-08-01 15:40:06.801530",
+ "modified_by": "Administrator",
+ "module": "cane_bill",
+ "name": "Loan Applicant Payment",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
