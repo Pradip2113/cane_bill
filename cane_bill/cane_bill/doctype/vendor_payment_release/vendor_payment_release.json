@@ -9,9 +9,9 @@
  "field_order": [
   "season",
   "column_break_vto4b",
-  "bank",
-  "column_break_tlukg",
   "branch",
+  "column_break_tlukg",
+  "bank",
   "column_break_0nqt2",
   "date",
   "column_break_zykyj",
@@ -66,7 +66,7 @@
    "fieldname": "bank",
    "fieldtype": "Link",
    "label": "Bank",
-   "options": "Bank Master"
+   "options": "Bank Name"
   },
   {
    "fieldname": "section_break_d2osm",
@@ -195,7 +195,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-08-26 11:42:07.431932",
+ "modified": "2023-08-29 14:28:36.687958",
  "modified_by": "Administrator",
  "module": "cane_bill",
  "name": "Vendor Payment Release",

@@ -14,6 +14,9 @@
   "vendor_payment_release",
   "column_break_zsobc",
   "bank",
+  "column_break_wdbga",
+  "bank_account",
+  "bank_credit_account",
   "column_break_no5wn",
   "date",
   "time",
@@ -22,6 +25,7 @@
   "section_break_sveap",
   "vendor_check_info",
   "sub_button",
+  "journal_entry_id",
   "amended_from"
  ],
  "fields": [
@@ -69,8 +73,8 @@
   {
    "fieldname": "bank",
    "fieldtype": "Link",
-   "label": "Bank ",
-   "options": "Bank Master"
+   "label": "Select Bank",
+   "options": "Bank Name"
   },
   {
    "fieldname": "section_break_kjzbw",
@@ -119,12 +123,34 @@
    "fieldname": "time",
    "fieldtype": "Time",
    "label": "Time"
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "label": "Bank Account",
+   "options": "Bank Account"
+  },
+  {
+   "fieldname": "column_break_wdbga",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "bank_account.account",
+   "fieldname": "bank_credit_account",
+   "fieldtype": "Link",
+   "label": "Bank Credit Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "journal_entry_id",
+   "fieldtype": "Data",
+   "label": "Journal Entry ID"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-08-26 11:45:22.731946",
+ "modified": "2023-08-30 13:24:05.175670",
  "modified_by": "Administrator",
  "module": "cane_bill",
  "name": "Vendor Cheque Release",

@@ -20,6 +20,7 @@
   "contract_id",
   "check",
   "section_break_ik4nc",
+  "debit_account",
   "acc_details",
   "account_details",
   "bank_name",
@@ -51,7 +52,7 @@
   {
    "fetch_from": "vendor_id.village",
    "fieldname": "address",
-   "fieldtype": "Small Text",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Address"
   },
@@ -71,12 +72,12 @@
   },
   {
    "fieldname": "type",
-   "fieldtype": "Small Text",
+   "fieldtype": "Data",
    "label": "Type"
   },
   {
    "fieldname": "contract_id",
-   "fieldtype": "Small Text",
+   "fieldtype": "Data",
    "label": "Contract ID"
   },
   {
@@ -93,24 +94,24 @@
   },
   {
    "fieldname": "account_details",
-   "fieldtype": "Small Text",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Account Details List"
   },
   {
    "fetch_from": "account_details.bank_name",
    "fieldname": "bank_name",
-   "fieldtype": "Small Text",
+   "fieldtype": "Data",
    "label": "Bank Name List"
   },
   {
    "fieldname": "doc_name",
-   "fieldtype": "Small Text",
+   "fieldtype": "Data",
    "label": "Doc Name"
   },
   {
    "fieldname": "payment_type",
-   "fieldtype": "Small Text",
+   "fieldtype": "Data",
    "label": "Payment Type"
   },
   {
@@ -126,12 +127,18 @@
    "fieldname": "cheque_release_status",
    "fieldtype": "Check",
    "label": "Cheque Release Status"
+  },
+  {
+   "fieldname": "debit_account",
+   "fieldtype": "Link",
+   "label": "Debit Account",
+   "options": "Account"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-08-25 16:57:57.298130",
+ "modified": "2023-08-29 18:50:13.537184",
  "modified_by": "Administrator",
  "module": "cane_bill",
  "name": "Child Vendor Payment Release",

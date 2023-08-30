@@ -19,6 +19,7 @@
   "column_break_s0jre",
   "rate_kg",
   "column_break_7nloh",
+  "binding_weight_kg",
   "column_break_kdooc",
   "column_break_1nud0",
   "total_collection_amount",
@@ -252,12 +253,17 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Payment Status"
+  },
+  {
+   "fieldname": "binding_weight_kg",
+   "fieldtype": "Data",
+   "label": "Binding Weight (KG)"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-08-16 12:56:50.027937",
+ "modified": "2023-08-28 18:16:54.736509",
  "modified_by": "Administrator",
  "module": "cane_bill",
  "name": "Child Calculation Cane Bill",

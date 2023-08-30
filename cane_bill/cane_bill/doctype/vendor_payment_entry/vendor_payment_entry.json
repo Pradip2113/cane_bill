@@ -15,10 +15,11 @@
   "time",
   "column_break_vto4b",
   "payment_type",
-  "column_break_ejram",
   "document_name",
-  "column_break_zxoh6",
+  "column_break_ejram",
   "bank",
+  "column_break_zxoh6",
+  "account",
   "payment_type_doctype",
   "section_break_d2osm",
   "show_list",
@@ -45,8 +46,10 @@
   {
    "fieldname": "season",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Season",
-   "options": "Season"
+   "options": "Season",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_4csz1",
@@ -55,8 +58,10 @@
   {
    "fieldname": "branch",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Branch",
-   "options": "Branch"
+   "options": "Branch",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_vto4b",
@@ -92,6 +97,7 @@
   {
    "fieldname": "payment_type_doctype",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Payment Type Doctype",
    "options": "DocType"
   },
@@ -153,6 +159,7 @@
   {
    "fieldname": "self_bank_transfer",
    "fieldtype": "Table",
+   "hidden": 1,
    "label": "Self Bank Transfer VPE",
    "options": "Self Bank Transfer VPE"
   },
@@ -163,6 +170,7 @@
   {
    "fieldname": "different_bank_transfer_vpe",
    "fieldtype": "Table",
+   "hidden": 1,
    "label": "Different Bank Transfer VPE",
    "options": "Different Bank Transfer VPE"
   },
@@ -170,7 +178,7 @@
    "fieldname": "bank",
    "fieldtype": "Link",
    "label": "Bank",
-   "options": "Bank Master"
+   "options": "Bank Name"
   },
   {
    "fieldname": "total_amount_sbt",
@@ -195,19 +203,30 @@
    "default": "Today",
    "fieldname": "date",
    "fieldtype": "Date",
-   "label": "Date"
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
   },
   {
    "default": "Now",
    "fieldname": "time",
    "fieldtype": "Time",
-   "label": "Time"
+   "in_list_view": 1,
+   "label": "Time",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.payment_type !='Loan Payment' ;",
+   "fieldname": "account",
+   "fieldtype": "Link",
+   "label": "Account",
+   "options": "Account"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-08-26 13:01:58.190470",
+ "modified": "2023-08-29 17:55:59.396472",
  "modified_by": "Administrator",
  "module": "cane_bill",
  "name": "Vendor Payment Entry",

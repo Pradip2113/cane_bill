@@ -15,6 +15,7 @@
   "to_date",
   "column_break_gkpj5",
   "village",
+  "today",
   "column_break_jcw4n",
   "state",
   "column_break_zg0ql",
@@ -43,6 +44,8 @@
   "calculation_table",
   "section_break_ctfvy",
   "net_total_weight",
+  "column_break_cegoe",
+  "net_total_binding_weight",
   "column_break_dditk",
   "net_total_collection_amount",
   "column_break_ovxsl",
@@ -52,7 +55,6 @@
   "section_break_pzotj",
   "journal_entry_id",
   "on_submit_event_call",
-  "today",
   "amended_from"
  ],
  "fields": [
@@ -128,6 +130,7 @@
    "read_only": 1
   },
   {
+   "default": "2022-2023",
    "fieldname": "season",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -181,6 +184,7 @@
    "label": "Today"
   },
   {
+   "default": "Bedkihal",
    "fieldname": "branch",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -296,12 +300,21 @@
    "fieldname": "journal_entry_id",
    "fieldtype": "Data",
    "label": "Journal Entry ID"
+  },
+  {
+   "fieldname": "column_break_cegoe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "net_total_binding_weight",
+   "fieldtype": "Float",
+   "label": "Net Total Binding Weight(TON)"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-08-04 11:07:11.170421",
+ "modified": "2023-08-29 10:22:41.058657",
  "modified_by": "Administrator",
  "module": "cane_bill",
  "name": "Cane Billing",

@@ -10,8 +10,8 @@ class DailyCanePurchase(Document):
 	@frappe.whitelist()
 	def get_cane_weight_data(self):
 		doc = frappe.db.get_list("Cane Weight",
-								filters={"docstatus": 1, "date": self.date, "purchase_receipt_status": 0 , "branch" : self.branch},
-								fields=["farmer_code", "farmer_name", "farmer_village", "actual_weight", "vehicle_number","season","branch","weight_partner_code","weight_partner_name","weight_partners_weight"])
+								filters={"docstatus": 1, "date": self.date, "purchase_receipt_status": 0 , "branch" : self.branch,"shft":self.shift},
+								fields=["farmer_code", "farmer_name", "farmer_village", "actual_weight", "vehicle_number","season","branch","water_supplier_code","water_supplier_name","water_supplier_weight"])
 
 		# Initialize a dictionary to store the aggregated data
 		aggregated_data = defaultdict(lambda: {"farmer_name": "", "farmer_village": "", "total_weight": 0, "all_vehicle_number": [],"season": "","branch":""})
@@ -36,11 +36,11 @@ class DailyCanePurchase(Document):
 				aggregated_data[farmer_code]["branch"] = branch
 
 		for p in doc:
-			if p["weight_partner_code"]:
-				farmer_code = p["weight_partner_code"]
-				farmer_name = p["weight_partner_name"]
+			if p["water_supplier_code"]:
+				farmer_code = p["water_supplier_code"]
+				farmer_name = p["water_supplier_name"]
 				farmer_village = p["farmer_village"]
-				actual_weight = p["weight_partners_weight"]
+				actual_weight = float(p["water_supplier_weight"])
 				vehicle_number = p["vehicle_number"]
 				season = p["season"]
 				branch = p["branch"]
@@ -66,6 +66,10 @@ class DailyCanePurchase(Document):
 			}
 			for code, data in aggregated_data.items()
 		]
+  
+		# doc_for_water_supplier = frappe.db.get_list("Cane Weight",
+		# 						filters={"docstatus": 1, "date": self.date, "purchase_receipt_status": 0 , "branch" : self.branch},
+		# 						fields=["farmer_code", "farmer_name", "farmer_village", "actual_weight", "vehicle_number","season","branch","weight_partner_code","weight_partner_name","weight_partners_weight"])
 
 		for row in aggregated_list:
 			self.append("record_table", {
