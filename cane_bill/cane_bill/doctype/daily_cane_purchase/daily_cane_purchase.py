@@ -36,7 +36,7 @@ class DailyCanePurchase(Document):
 				aggregated_data[farmer_code]["branch"] = branch
 
 		for p in doc:
-			if p["water_supplier_code"]:
+			if p["water_supplier_weight"]:
 				farmer_code = p["water_supplier_code"]
 				farmer_name = p["water_supplier_name"]
 				farmer_village = p["farmer_village"]
@@ -163,8 +163,8 @@ class DailyCanePurchase(Document):
 					{
 						"item_code": str(i_c),
 						"qty": s.net_weight,
-						"cost_center" :str(c_c)
-						
+						"cost_center" :str(c_c),
+						"Warehouse": frappe.get_value("Branch",self.branch,"purchase_receipt_warehouse")
 						
 					},)
 				

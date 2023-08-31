@@ -5,6 +5,7 @@ import frappe
 from frappe.model.document import Document
 from frappe.utils import nowdate
 from frappe.model.document import Document
+from frappe.utils import get_link_to_form
 
 from datetime import datetime
     
@@ -95,7 +96,7 @@ class CaneBilling(Document):
             AKCA = ((cane_price[0].additional_rate_for_kisan_card_holder))
             # frappe.msgprint(str(AKCA))
         if cane_rate == 0:
-                frappe.throw( f" Please set Cane Rate/Ton for Branch '{str(self.branch) } '")
+                frappe.throw( f" Please set Cane Rate/Ton for Branch '{get_link_to_form('Branch', self.branch) } '")
              
  
         
@@ -430,6 +431,7 @@ class CaneBilling(Document):
                                 "rate":i.rate,
                                 "pr_detail" : i.name,
                                 "received_qty": i.qty ,
+                                
                                 
 
                             },)

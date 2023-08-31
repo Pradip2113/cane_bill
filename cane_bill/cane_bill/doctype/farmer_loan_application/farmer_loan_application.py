@@ -119,6 +119,8 @@ class FarmerLoanApplication(Document):
 						doc.from_date_interest_calculation = s.from_date_interest_calculation
 						doc.account = self.account_paid_to
 						doc.interest_account = self.account_interest_paid_to
+						if(self.contract_id):
+							doc.h_and_t_contract_id = self.contract_id
 						doc.insert()
 						doc.save()
 						doc.submit()

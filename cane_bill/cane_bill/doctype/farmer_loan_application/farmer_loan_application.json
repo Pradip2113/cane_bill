@@ -10,17 +10,19 @@
  "field_order": [
   "season",
   "applicant",
+  "vendor_type",
   "column_break_vs8zz",
   "posting_date",
   "applicant_name",
-  "total_area_in_acrs",
+  "contract_id",
   "column_break_1ddzr",
   "status",
   "address",
-  "branch",
+  "total_area_in_acrs",
   "column_break_ggc1l",
   "loan_type",
   "loan_amount",
+  "branch",
   "column_break_8xm3o",
   "rate_of_interest",
   "repayment_period_in_years",
@@ -381,12 +383,24 @@
    "fieldtype": "Check",
    "label": "Payment Flag",
    "read_only": 1
+  },
+  {
+   "fieldname": "vendor_type",
+   "fieldtype": "Select",
+   "label": "Vendor Type",
+   "options": "Farmer\nTransporter"
+  },
+  {
+   "depends_on": "eval: doc.vendor_type =='Transporter'",
+   "fieldname": "contract_id",
+   "fieldtype": "Data",
+   "label": "Contract Id"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-08-29 17:43:41.165530",
+ "modified": "2023-08-31 13:56:44.499610",
  "modified_by": "Administrator",
  "module": "cane_bill",
  "name": "Farmer Loan Application",
