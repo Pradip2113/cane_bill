@@ -29,7 +29,7 @@
   "maximum_amount",
   "repayment_method",
   "bank_details_section",
-  "farmer_bank_name",
+  "farmer_bank_name_",
   "column_break_uy67m",
   "farmer_bank_branch",
   "column_break_yckuv",
@@ -54,8 +54,8 @@
   "ifsc_code",
   "account_number",
   "account_paid_to",
-  "account_paid_from",
   "account_interest_paid_to",
+  "account_interest_credit",
   "section_break_dvtuz",
   "agreement_copy",
   "column_break_62ktl",
@@ -171,14 +171,6 @@
    "fieldtype": "Section Break"
   },
   {
-   "fetch_from": "loan_type.account_paid_from",
-   "fieldname": "account_paid_from",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "label": "Account Paid From",
-   "options": "Account"
-  },
-  {
    "fieldname": "column_break_eaaxs",
    "fieldtype": "Column Break"
   },
@@ -186,17 +178,17 @@
    "fetch_from": "loan_type.account_paid_to",
    "fieldname": "account_paid_to",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Account Paid To",
-   "options": "Account"
+   "options": "Account",
+   "reqd": 1
   },
   {
    "fetch_from": "loan_type.account_interest_paid_to",
    "fieldname": "account_interest_paid_to",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Account interest Paid To",
-   "options": "Account"
+   "options": "Account",
+   "reqd": 1
   },
   {
    "fieldname": "section_break_nq6ai",
@@ -287,7 +279,6 @@
    "label": "Bank Name"
   },
   {
-   "fetch_from": "drip_irrigation_company.ifsc_code",
    "fieldname": "ifsc_code",
    "fieldtype": "Data",
    "label": "IFSC Code"
@@ -343,13 +334,7 @@
    "label": "Bank Details"
   },
   {
-   "fieldname": "farmer_bank_name",
-   "fieldtype": "Link",
-   "label": "Farmer Bank Name",
-   "options": "Bank Master"
-  },
-  {
-   "fetch_from": "farmer_bank_name.ifsc_code",
+   "fetch_from": "farmer_bank_branch.ifsc_code",
    "fieldname": "framer_bank_ifsc_code",
    "fieldtype": "Data",
    "label": "Farmer Bank IFSC Code"
@@ -395,12 +380,26 @@
    "fieldname": "contract_id",
    "fieldtype": "Data",
    "label": "Contract Id"
+  },
+  {
+   "fieldname": "farmer_bank_name_",
+   "fieldtype": "Link",
+   "label": "Farmer Bank Name",
+   "options": "Bank Name"
+  },
+  {
+   "fetch_from": "loan_type.account_interest_credit",
+   "fieldname": "account_interest_credit",
+   "fieldtype": "Link",
+   "label": "Account interest Credit",
+   "options": "Account",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-08-31 13:56:44.499610",
+ "modified": "2023-09-06 16:07:13.719385",
  "modified_by": "Administrator",
  "module": "cane_bill",
  "name": "Farmer Loan Application",

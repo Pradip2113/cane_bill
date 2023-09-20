@@ -51,7 +51,8 @@
    "fieldname": "season",
    "fieldtype": "Link",
    "label": "Season",
-   "options": "Season"
+   "options": "Season",
+   "reqd": 1
   },
   {
    "fieldname": "farmer_code",
@@ -105,13 +106,15 @@
    "fetch_from": "deduction_name.account",
    "fieldname": "account",
    "fieldtype": "Data",
-   "label": "Account"
+   "label": "Account",
+   "reqd": 1
   },
   {
    "fieldname": "branch",
    "fieldtype": "Link",
    "label": "Branch",
-   "options": "Branch"
+   "options": "Branch",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_mkcx8",
@@ -248,7 +251,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-08-08 18:23:37.706666",
+ "modified": "2023-09-15 11:56:28.334102",
  "modified_by": "Administrator",
  "module": "cane_bill",
  "name": "Deduction Form",

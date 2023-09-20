@@ -54,6 +54,7 @@
   "net_total_payable_amount",
   "section_break_pzotj",
   "journal_entry_id",
+  "interest_journal_entry_id",
   "on_submit_event_call",
   "amended_from"
  ],
@@ -130,7 +131,7 @@
    "read_only": 1
   },
   {
-   "default": "2022-2023",
+   "default": "2023-2024",
    "fieldname": "season",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -309,12 +310,18 @@
    "fieldname": "net_total_binding_weight",
    "fieldtype": "Float",
    "label": "Net Total Binding Weight(TON)"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "interest_journal_entry_id",
+   "fieldtype": "Small Text",
+   "label": "Interest Journal Entry ID"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-08-29 10:22:41.058657",
+ "modified": "2023-09-06 17:38:28.680477",
  "modified_by": "Administrator",
  "module": "cane_bill",
  "name": "Cane Billing",

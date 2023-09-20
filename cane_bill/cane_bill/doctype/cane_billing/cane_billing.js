@@ -54,26 +54,37 @@ frappe.ui.form.on('Cane Billing', {
     }
 });
 
-frappe.ui.form.on('Cane Billing', {
-	
-	on_submit_event_call: function(frm) {
-		frm.call({
-				method:'test_method_trigger_on_button_on_submit_event_call',//function name defined in python
-				doc: frm.doc, //current document    test_button
-			});
-
-	}
-});     
-
 
 frappe.ui.form.on('Cane Billing', {
-	
 	on_submit_event_call: function(frm) {
 		frm.call({
-				method:'total_values',//function name defined in python
-				doc: frm.doc, //current document    test_button
-			});
+			method: 'interest_je_on_cancle',//function name defined in python
+			doc: frm.doc, //current document
+		});
 
 	}
-});   
+});
+
+// frappe.ui.form.on('Cane Billing', {
+	
+// 	on_submit_event_call: function(frm) {
+// 		frm.call({
+// 				method:'test_method_trigger_on_button_on_submit_event_call',//function name defined in python
+// 				doc: frm.doc, //current document    test_button
+// 			});
+
+// 	}
+// });     
+
+
+// frappe.ui.form.on('Cane Billing', {
+	
+// 	on_submit_event_call: function(frm) {
+// 		frm.call({
+// 				method:'total_values',//function name defined in python
+// 				doc: frm.doc, //current document    test_button
+// 			});
+
+// 	}
+// });   
 

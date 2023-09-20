@@ -54,7 +54,7 @@ class VendorPaymentEntry(Document):
 	def get_list(self):
 		if self.payment_type == "Cane Billing Payment":
 			doctype_name = "Child Calculation Cane Bill"
-			doctype_filter = {"docstatus": 1,"parent": self.document_name,"payment_status" :"0"} #"payment_status":0
+			doctype_filter = {"docstatus": 1,"parent": self.document_name,"payment_status":0} #"payment_status":0
 			doctype_field = ["name","farmer_id", "farmer_name", "total_payable_amount"]
 			x, a , b, c  = "farmer","farmer_id","farmer_name","total_payable_amount"
 
@@ -67,7 +67,7 @@ class VendorPaymentEntry(Document):
 		elif self.payment_type == "H and T Advance Payment":
 			doctype_name = "Advance Request item"
 			doctype_filter = {"parent": self.document_name,} #"payment_status":False
-			doctype_field = ["name","transporter_code", "name1", "sanction_amount"]
+			doctype_field = ["name","transporter_code", "name1", "sanction_amount","contract_id"]
 			x ,a ,b, c = "transporter","transporter_code","name1","sanction_amount" 
 
 		elif self.payment_type == "Loan Payment":
@@ -81,7 +81,7 @@ class VendorPaymentEntry(Document):
 
 		doc = frappe.get_all(doctype_name, filters=doctype_filter, fields=doctype_field)
 
-		
+	
 		for entry in doc:
       
 			
@@ -90,7 +90,7 @@ class VendorPaymentEntry(Document):
 			else:
 				bank_doc=frappe.get_all("Bank Details", filters = {"parent": entry.get(a),str(x):1} , fields = ["bank_name"])
 				
-    
+			
 			self.append(
 				"vendor_amount_information",
 				{

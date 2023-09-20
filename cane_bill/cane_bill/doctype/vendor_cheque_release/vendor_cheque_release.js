@@ -40,19 +40,54 @@ frappe.ui.form.on('Vendor Cheque Release', {
 });
 
 
-
 frappe.ui.form.on('Vendor Cheque Release', {
 	
 	sub_button: function(frm) {
 
 		frm.call({
-			method: 'method_on_submit',//function name defined in python
+			method: 'update_value_in_cheque_list_on_update',//function name defined in python
 			doc: frm.doc, //current document
 		});
 
 	}
 
 });
+
+frappe.ui.form.on('Child Vendor Cheque Release', {
+    refresh: function(frm) {
+        // frappe.msgprint("Hello World"); // You can print a string directly
+        frappe.call({
+            method: 'frappe.client.get_value',
+            args: {
+                doctype: 'Child Cheque Table',
+                filters: {"parent": self.branch , "bank" : self.bank_credit_account},
+                fieldname: 'cheque_number_list'
+            },
+            callback: function(response) {
+                var options = eval(response.message.list_of_items);
+                frm.set_df_property('address', 'options', options);
+            }
+        });
+    }
+});
+
+
+
+
+
+
+// frappe.ui.form.on('Vendor Cheque Release', {
+	
+// 	sub_button: function(frm) {
+
+// 		frm.call({
+// 			method: 'update_value_in_cheque_list_on_save',//function name defined in python
+// 			doc: frm.doc, //current document
+// 		});
+
+// 	}
+
+// });
 
 
 frappe.ui.form.on("Vendor Cheque Release", {

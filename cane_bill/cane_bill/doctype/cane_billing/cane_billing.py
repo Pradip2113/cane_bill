@@ -87,6 +87,9 @@ class CaneBilling(Document):
 
     @frappe.whitelist()
     def billing(self):
+        b_s = 0
+        if self.advance_type != "First Advance":
+            b_s = 1
         cane_rate = 0
         cane_price = frappe.get_all("Branch",
                                             filters={"name": self.branch},
@@ -117,44 +120,63 @@ class CaneBilling(Document):
             additional_rate = 0
             total_other_deductions=0
             other_deduction_dict =[]
-
+            p=0
+            q=0
 
             if FAR.check:
                 # in doc all document are collcted from 'Cane Weight' where farmer is FAR.farmer_id
                 doc = frappe.get_all("Cane Weight",
-                                                    filters={ "docstatus": 1,"date": ["between", [self.from_date, self.to_date]], "billing_status": 0,"farmer_code": FAR.farmer_id,},
+                                                    filters={ "docstatus": 1,"date": ["between", [self.from_date, self.to_date]], "billing_status": b_s,"farmer_code": FAR.farmer_id,},
                                                     fields={"actual_weight", "binding_weight","farmer_code", "is_kisan_card"},)
+                # frappe.msgprint(str(doc))
                 for d in doc:
                     if d.actual_weight:
                         if d.is_kisan_card=="Yes":
-                            total_weight_kissan += round((float(d.actual_weight) ), 3)  # here all cane weight,s  will calculate    [total_weight += round((float(d.actual_weight) / 1000), 2)]
+                            p=round(d.actual_weight,3)
+                            total_weight_kissan=  total_weight_kissan +(p) # here all cane weight,s  will calculate    [total_weight += round((float(d.actual_weight) / 1000), 2)]
+                            total_weight_kissan=round(total_weight_kissan,3)
+                            # frappe.msgprint(str(total_weight_kissan))
                         else :
-                            total_weight += round((float(d.actual_weight) ), 3)
-                            
-                        binding_weight += round((float(d.binding_weight) ),3)
+                            q =round(d.actual_weight,3)
+                            total_weight = total_weight+(q)
+                            total_weight=round(total_weight,3)
+                            # frappe.msgprint(str(total_weight))
+                        binding_weight += ((d.binding_weight))
                         
                 moc = frappe.get_all("Cane Weight",
-                                                    filters={ "docstatus": 1,"date": ["between", [self.from_date, self.to_date]], "billing_status": 0,"water_supplier_code": FAR.farmer_id,},
+                                                    filters={ "docstatus": 1,"date": ["between", [self.from_date, self.to_date]], "billing_status": b_s,"water_supplier_code": FAR.farmer_id,},
                                                     fields={"water_supplier_weight", "binding_weight","farmer_code", "is_kisan_card"},)
                 
+                # frappe.msgprint(str(moc))
                 for m in moc:
                     if m.water_supplier_weight:
                         if m.is_kisan_card=="Yes":
-                            total_weight_kissan += round((float(m.water_supplier_weight) ), 3)
+                            p=round(m.water_supplier_weight,3)
+                            total_weight_kissan = total_weight_kissan+(p)
+                            total_weight_kissan=round(total_weight_kissan,3)
+                            # frappe.msgprint(str(total_weight_kissan))
+                            
                         else :
-                            total_weight += round((float(d.actual_weight) ), 3)    
+                            q =round(m.water_supplier_weight,3)
+                            total_weight =  total_weight+(q)
+                            total_weight=round(total_weight,3)
+                            # frappe.msgprint(str(total_weight))
                         
-                        
+                            
                 if FAR.is_kisan_card and self.kisan_card:
                     if FAR.is_kisan_card == "Yes" :
                         additional_rate = AKCA
-                
+                   
 
-                Total_collection_amount = (total_weight*cane_rate) + (total_weight_kissan * (cane_rate + additional_rate))
-                total_weight =  total_weight + total_weight_kissan
+                Total_collection_amount = ((total_weight)*cane_rate) + ((total_weight_kissan) * (cane_rate + additional_rate))
+                
+                # frappe.msgprint(str(total_weight))
+                total_weight =  (((total_weight) + (total_weight_kissan)))
+                # frappe.msgprint(str(total_weight))   
+                # frappe.msgprint((str(total_weight))+"-"(str(total_weight_kissan)))
                 
                 other_deductions = frappe.get_all("Deduction Form",
-                                                            filters={"farmer_code": FAR.farmer_id,"docstatus":1, "season" : self.season , "deduction_status" : 0,'h_and_t_contract_id':None},
+                                                            filters={"farmer_code": FAR.farmer_id,"docstatus":1, "season" : self.season , "deduction_status" : 0,'h_and_t_contract_id':"",},
                                                             fields=["farmer_code", "account", "name", "deduction_amount","paid_amount" , "farmer_application_loan_id","interest_calculate_on_amount", "rate_of_interest" , "from_date_interest_calculation","interest_account" ,"update_from_date_interest_calculation",],)
                 if self.includes_other_deduction_deduction:
                     other_deduction_dict = [{"Farmer Code": o_d.farmer_code,"Deduction Amount": round((float(o_d.deduction_amount) - float(o_d.paid_amount)),2),"Account": o_d.account,"DFN": o_d.name,}for o_d in other_deductions if not o_d.farmer_application_loan_id ]
@@ -183,10 +205,10 @@ class CaneBilling(Document):
                                                     "Installment Interest Amount": round(float(o_i.interest_calculate_on_amount)* (float(o_i.rate_of_interest) / 100)* ((datetime.strptime(self.to_date, "%Y-%m-%d")- datetime.strptime((str(o_i.from_date_interest_calculation)),"%Y-%m-%d",)).days/ 365),2,),
                                                 }
                                                 
-                                                for o_i in other_deductions if o_i.farmer_application_loan_id  and (round((float(o_i.deduction_amount) - float(o_i.paid_amount)),2)) != 0 ]
+                                                for o_i in other_deductions if o_i.farmer_application_loan_id  and (round((float(o_i.deduction_amount) - float(o_i.paid_amount)),2)) != 0 and o_i.from_date_interest_calculation ]
                     loan_interest_amount = sum(float(m["Installment Interest Amount"]) for m in loan_installment_intrest)
 
-                # in deduction_doc all document are collcted  from 'Sales Invoice' where farmer is FAR.farmer_id and status are ['Unpaid', 'Overdue', 'Partly Paid'] 'h_and_t_contract':None
+                # in deduction_doc all document are collcted  from 'Sales Invoice' where farmer is FAR.farmer_id and status are ['Unpaid', 'Overdue', 'Partly Paid'] 'h_and_t_contract_id':None
                 if self.includes_sales_invoice_deduction:
                     deduction_doc = frappe.get_all("Sales Invoice",
                                                                     filters={"sale_type": ["!=", "H and T Sales"],"customer": FAR.farmer_id,"status": ["in", ["Unpaid", "Overdue", "Partly Paid"]],},
@@ -328,6 +350,7 @@ class CaneBilling(Document):
         self.bill_status_change_of_cane_weight()
         self.bulk_purchase_invoice()
         self.je_of_sales_invoice_and_farmer_loan()
+        self.interest_je()
         self.update_value_in_farmer_loan()
         # self.change_status_of_farmer_loan()
         self.set_date_in_farmer_loan_child_for_next_installment()
@@ -338,11 +361,59 @@ class CaneBilling(Document):
     def before_cancel(self):
         self.bill_status_change_of_cane_weight_on_cancel()
         self.cancel_journal_entry()
+        self.interest_je_on_cancle()
         self.bulk_purchase_invoice_cancel()
         self.update_value_in_farmer_loan_cancel()
         # self.change_status_of_farmer_loan_on_cancel()
         self.set_date_in_farmer_loan_child_for_next_installment_on_cancel()
         self.update_value_in_deduction_form_on_cancel()
+        
+        
+    @frappe.whitelist()
+    def interest_je(self):
+        je_list=[]
+        for viv in self.get("calculation_table"):      
+            for each in eval(viv.farmer_loan_interest_information):
+                # frappe.throw(str((each["Farmer Loan ID"])))
+                je = frappe.new_doc("Journal Entry")
+                je.voucher_type = "Journal Entry"
+                je.company = frappe.get_value("Branch",self.branch,"company")
+                je.posting_date = self.today
+                je.append(
+                    "accounts",
+                    {
+                        "account": each["Account"],
+                        "party_type": "Customer",
+                        "party": viv.farmer_id,
+                        "debit_in_account_currency": round(each["Installment Interest Amount"],2),
+                        
+                    },)
+                je.append(
+                        "accounts",
+                        {
+                            "account": frappe.get_value("Farmer Loan Application",(each["Farmer Loan ID"]),"account_interest_credit"),
+                            "credit_in_account_currency": round(each["Installment Interest Amount"],2),
+
+                        },)
+                je.insert()
+                je.save()
+                je.submit()
+                journal_entry = frappe.db.get_all("Journal Entry", fields=["name"], order_by="creation DESC", limit=1)
+                je_list.append(str(journal_entry[0].name))
+        # frappe.throw(str(je_list))
+        self.interest_journal_entry_id = (str(je_list))
+        
+    @frappe.whitelist()
+    def interest_je_on_cancle(self):
+        if self.interest_journal_entry_id:
+            for xox in eval(self.interest_journal_entry_id):
+                doc = frappe.get_doc("Journal Entry", xox)
+                if doc.docstatus == 1:
+                    doc.cancel()
+                # ---------------------------------------------------
+                    
+                
+                        
 
     @frappe.whitelist()
     def bill_status_change_of_cane_weight(self):
@@ -585,7 +656,7 @@ class CaneBilling(Document):
                 list_data_lo =[]
                 list_data_lo = eval(s.farmer_loan_information)
                 for data_lo in list_data_lo:
-                    child_doc_farmer_loan=frappe.get_all('Deduction Form', filters={'farmer_application_loan_id': data_lo['Farmer Loan ID'],'season':data_lo['season'],'h_and_t_contract':None}, fields=['name','paid_amount'])
+                    child_doc_farmer_loan=frappe.get_all('Deduction Form', filters={'farmer_application_loan_id': data_lo['Farmer Loan ID'],'season':data_lo['season'],'h_and_t_contract_id':""}, fields=['name','paid_amount'])
                     for d in child_doc_farmer_loan:
                         frappe.db.set_value("Deduction Form",d.name,"paid_amount",round((float(d.paid_amount)+(float(data_lo['Installment Amount']))),2))
                         
@@ -598,7 +669,7 @@ class CaneBilling(Document):
                 list_data_lo =[]
                 list_data_lo = eval(s.farmer_loan_information)
                 for data_lo in list_data_lo:
-                    child_doc_farmer_loan=frappe.get_all('Deduction Form', filters={'farmer_application_loan_id': data_lo['Farmer Loan ID'],'season':data_lo['season'],'h_and_t_contract':None}, fields=['name','paid_amount'])
+                    child_doc_farmer_loan=frappe.get_all('Deduction Form', filters={'farmer_application_loan_id': data_lo['Farmer Loan ID'],'season':data_lo['season'],'h_and_t_contract_id':""}, fields=['name','paid_amount'])
                     for d in child_doc_farmer_loan:
                         frappe.db.set_value("Deduction Form",d.name,"paid_amount",round((float(d.paid_amount)-(float(data_lo['Installment Amount']))),2))
 
@@ -614,14 +685,14 @@ class CaneBilling(Document):
             #Update date for Next season
             for data_lo in list_data_lo:
                 child_doc_farmer_loan=frappe.get_all('Deduction Form', 
-                                                                    filters={'farmer_application_loan_id': data_lo['Farmer Loan ID'],'season':next_seasons,'h_and_t_contract':None}, 
+                                                                    filters={'farmer_application_loan_id': data_lo['Farmer Loan ID'],'season':next_seasons,'h_and_t_contract_id':""}, 
                                                                     fields=['name'])
                 for d in child_doc_farmer_loan:
                     frappe.db.set_value("Deduction Form",d.name,"from_date_interest_calculation",self.to_date)
             #Update date for current season       
             for data_lo in list_data_lo:
                 child_doc_farmer_loan=frappe.get_all('Deduction Form', 
-                                                                    filters={'farmer_application_loan_id': data_lo['Farmer Loan ID'],'season':self.season,'h_and_t_contract':None}, 
+                                                                    filters={'farmer_application_loan_id': data_lo['Farmer Loan ID'],'season':self.season,'h_and_t_contract_id':""}, 
                                                                     fields=['name',])
                 for d in child_doc_farmer_loan:
                     frappe.db.set_value("Deduction Form",d.name,"update_from_date_interest_calculation",self.to_date)
@@ -637,7 +708,7 @@ class CaneBilling(Document):
             next_seasons = str(int(current_season.split('-')[1]) ) + '-' + str(int(current_season.split('-')[1]) + 1) 
             for data_lo in list_data_lo:
                 child_doc_farmer_loan=frappe.get_all('Deduction Form', 
-                                                    filters={'farmer_application_loan_id': data_lo['Farmer Loan ID'],'season':next_seasons,'h_and_t_contract':None}, 
+                                                    filters={'farmer_application_loan_id': data_lo['Farmer Loan ID'],'season':next_seasons,'h_and_t_contract_id':""}, 
                                                     fields=['name',])
                 for d in child_doc_farmer_loan:
                     frappe.db.set_value("Deduction Form",d.name,"from_date_interest_calculation",None)
@@ -645,7 +716,7 @@ class CaneBilling(Document):
                     
             for data_lo in list_data_lo:
                 child_doc_farmer_loan=frappe.get_all('Deduction Form', 
-                                                    filters={'farmer_application_loan_id': data_lo['Farmer Loan ID'],'season':self.season,'h_and_t_contract':None}, 
+                                                    filters={'farmer_application_loan_id': data_lo['Farmer Loan ID'],'season':self.season,'h_and_t_contract_id':""}, 
                                                     fields=['name',])
                 for d in child_doc_farmer_loan:
                     frappe.db.set_value("Deduction Form",d.name,"update_from_date_interest_calculation",None)
@@ -661,7 +732,7 @@ class CaneBilling(Document):
             list_data_od =[]
             list_data_od = eval(s.other_deduction_information)
             for data_od in list_data_od:
-                other_deduction_doc=frappe.get_all('Deduction Form', filters={'name': data_od['DFN'],'h_and_t_contract':None}, fields=['name',"paid_amount" , "deduction_amount"])
+                other_deduction_doc=frappe.get_all('Deduction Form', filters={'name': data_od['DFN'],'h_and_t_contract_id':""}, fields=['name',"paid_amount" , "deduction_amount"])
                 for d in other_deduction_doc:
                         frappe.db.set_value("Deduction Form",d.name,"paid_amount",(float(d.paid_amount)+(float(data_od['Deduction Amount']))))
                         if (float(d.paid_amount)+(float(data_od['Deduction Amount']))) == d.deduction_amount:
@@ -675,7 +746,7 @@ class CaneBilling(Document):
             list_data_od =[]
             list_data_od = eval(s.other_deduction_information)
             for data_od in list_data_od:
-                other_deduction_doc=frappe.get_all('Deduction Form', filters={'name': data_od['DFN'],'h_and_t_contract':None}, fields=['name',"paid_amount" , "deduction_amount"])
+                other_deduction_doc=frappe.get_all('Deduction Form', filters={'name': data_od['DFN'],'h_and_t_contract_id':""}, fields=['name',"paid_amount" , "deduction_amount"])
                 for d in other_deduction_doc:
                         frappe.db.set_value("Deduction Form",d.name,"paid_amount",(float(d.paid_amount)-(float(data_od['Deduction Amount']))))
                         frappe.db.set_value("Deduction Form",d.name,"deduction_status",0)
@@ -697,7 +768,7 @@ class CaneBilling(Document):
         doc = frappe.get_all("Child Farmer Cane Bill",filters ={"parent": self.name , "check" : 0},)
         for d in doc:
             frappe.delete_doc("Child Farmer Cane Bill", d.name)
-        self.reload_doc()
+        # self.reload_doc()
         # self.update_value_in_farmer_loan_cancel()
         # self.set_date_in_farmer_loan_child_for_next_installment_on_cancel()
         

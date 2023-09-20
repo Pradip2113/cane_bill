@@ -25,7 +25,7 @@ class VendorPaymentRelease(Document):
 		for d in self.get("vpe_table"):
 			vendor_amt_info_child = frappe.get_all("Child Vendor Payment Entry",
                                           										filters={"parent":d.vendor_payment_entry ,"pay_r_s":0,"docstatus":1,'check':1},
-                                                    							fields=["vendor_id","vendor_name","address","total_amount","type","contract_id","account_details","bank_name","name","debit_account"])
+                                                    							fields=["vendor_id","vendor_name","address","total_amount","type","contract_id","account_details","bank_name","name","debit_account","doc_name"])
 			# frappe.throw(str(vendor_amt_info_child))
 			for vc in vendor_amt_info_child:
 				self.append(
@@ -35,14 +35,15 @@ class VendorPaymentRelease(Document):
 									"vendor_name":vc.vendor_name,
 									"address":vc.address,
 									"total_amount":vc.total_amount,
-									"type":vc.type,
+									"type":str(frappe.get_value("Vendor Payment Entry",d.vendor_payment_entry,"payment_type")),
 									"contract_id":vc.contract_id,
 									"debit_account": vc.debit_account,
 									"account_details":vc.account_details,
 									"acc_details":vc.account_details,
 									"bank_name":vc.bank_name,
 									"payment_type":vc.parent,
-									"doc_name" :vc.name
+									"doc_name" :vc.name,
+									"payment_doc" : vc.doc_name,
 								}
 						)
 

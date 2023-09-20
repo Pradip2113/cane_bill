@@ -19,10 +19,10 @@
   "account_details_section",
   "mode_of_payment",
   "section_break_qj9bm",
-  "account_paid_from",
-  "column_break_uqgz8",
   "account_paid_to",
-  "account_interest_paid_to"
+  "column_break_uqgz8",
+  "account_interest_paid_to",
+  "account_interest_credit"
  ],
  "fields": [
   {
@@ -87,13 +87,6 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "account_paid_from",
-   "fieldtype": "Link",
-   "label": "Account Paid From",
-   "options": "Account",
-   "reqd": 1
-  },
-  {
    "fieldname": "column_break_uqgz8",
    "fieldtype": "Column Break"
   },
@@ -114,11 +107,17 @@
    "fieldname": "loan_amount_for_acrs",
    "fieldtype": "Currency",
    "label": "Loan Amount for Acrs"
+  },
+  {
+   "fieldname": "account_interest_credit",
+   "fieldtype": "Link",
+   "label": "Account interest Credit",
+   "options": "Account"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-08-03 21:19:29.126158",
+ "modified": "2023-09-06 16:10:20.501364",
  "modified_by": "Administrator",
  "module": "cane_bill",
  "name": "Farmer Loan Type",

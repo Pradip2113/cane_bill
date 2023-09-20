@@ -148,3 +148,94 @@ frappe.ui.form.on('Farmer Loan', {
 		
 	}
 });
+
+
+// frappe.ui.form.on('Farmer Loan', {
+//     refresh: function(frm) {
+// 		frappe.msgprint("this is test.....!")
+//         // Define the options for the dropdown
+//         var options = ["hdgg", 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+
+//         // Add the options to the dropdown field
+//         frm.set_df_property('address', 'options', options);
+//     }
+// });
+
+
+// frappe.ui.form.on('Farmer Loan', {
+//     refresh: function(frm) {
+
+//         frappe.call({
+//             method: 'frappe.client.get_value',
+//             args: {
+//                 doctype: 'Test Child',  // Change to the actual doctype name
+//                 filters: {'name': 'x-1'},
+//                 fieldname: ['list_of_items'],
+//             },
+//             callback: function(response) {
+//                 var options = JSON.parse(response.message.list_of_items);
+//                 frappe.msgprint(str(response))
+//                 frm.set_df_property('address', 'options', options);
+//             }
+//         });
+//     }
+// });
+
+
+
+
+
+// frappe.ui.form.on('Farmer Loan', {
+//     refresh: function(frm) {
+//         frappe.msgprint("str(value)")
+//         var m= frappe.get_value('Test Child',  "x-1", 'list_of_items') ;
+//         frappe.msgprint(str(m))
+//         });
+        
+//     }
+// });
+
+frappe.ui.form.on('Farmer Loan', {
+    refresh: function(frm) {
+        // frappe.msgprint("Hello World"); // You can print a string directly
+        frappe.call({
+            method: 'frappe.client.get_value',
+            args: {
+                doctype: 'Test Child',
+                filters: {'name': 'x-1'},
+                fieldname: 'list_of_items'
+            },
+            callback: function(response) {
+                var options = eval(response.message.list_of_items);
+                frm.set_df_property('address', 'options', options);
+            }
+        });
+    }
+});
+
+// frappe.ui.form.on('Farmer Loan', {
+//     refresh: function(frm) {
+//         frappe.call({
+//             method: 'frappe.client.get_list',
+//             args: {
+//                 doctype: 'Test Child',
+//                 filters: {'name': 'x-1'},
+//                 fields: ['name']
+//             },
+//             callback: function(response) {
+//                 var options = [];
+//                 if (response.message) {
+//                     response.message.forEach(function(item) {
+//                         options.push({
+//                             value: item.name,
+//                             label: item.name
+//                         });
+//                     });
+//                 }
+//                 frm.set_df_property('address', 'options', options);
+//             }
+//         });
+//     }
+// });
+
+

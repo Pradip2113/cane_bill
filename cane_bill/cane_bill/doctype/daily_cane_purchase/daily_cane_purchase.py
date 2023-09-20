@@ -164,10 +164,10 @@ class DailyCanePurchase(Document):
 						"item_code": str(i_c),
 						"qty": s.net_weight,
 						"cost_center" :str(c_c),
-						"Warehouse": frappe.get_value("Branch",self.branch,"purchase_receipt_warehouse")
+						"warehouse" : str(frappe.get_value("Branch" ,self.branch,"purchase_receipt_warehouse")),
 						
 					},)
-				
+				# frappe.throw(str(frappe.get_value("Branch" ,self.branch,"purchase_receipt_warehouse")))
 				PR.insert()
 				PR.save()
 				PR.submit()
@@ -236,8 +236,10 @@ class DailyCanePurchase(Document):
 						"pr_detail" : item_name,
 						"received_qty": s.net_weight ,
 						
+						
 
 					},)
+				
 				PI.credit_to = str(c_a)	
 				PI.insert()
 				PI.save()

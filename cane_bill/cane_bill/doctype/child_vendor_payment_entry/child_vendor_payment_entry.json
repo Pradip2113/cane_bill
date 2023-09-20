@@ -99,8 +99,9 @@
   },
   {
    "fieldname": "contract_id",
-   "fieldtype": "Data",
-   "label": "Contract ID"
+   "fieldtype": "Link",
+   "label": "Contract ID",
+   "options": "H and T Contract"
   },
   {
    "fieldname": "doc_name",
@@ -124,7 +125,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-08-29 17:39:49.383345",
+ "modified": "2023-09-13 16:11:16.663041",
  "modified_by": "Administrator",
  "module": "cane_bill",
  "name": "Child Vendor Payment Entry",
