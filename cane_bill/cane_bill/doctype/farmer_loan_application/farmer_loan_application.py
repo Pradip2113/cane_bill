@@ -86,8 +86,21 @@ class FarmerLoanApplication(Document):
   
   
 	@frappe.whitelist()
-	def on_cancel(self):
+	def target_Bank(self):
+		doc = frappe.get_all("Bank Details", 
+                    filters={ "Parent": self.applicant, "farmer": 1,"is_active":"Yes"}, 
+                    fields=["bank_name", "branchifsc_code", "account_number", "bank_and_branch"])
+		frappe.msgprint(doc)
+		if doc:
+			for d in doc:
+				self.farmer_bank_name_=d.bank_and_branch
+				# self.farmer_bank_branch=d.bank_name
+				self.farmer_account_number=d.account_number
+				self.framer_bank_ifsc_code=d.branchifsc_code
+				
 
+	@frappe.whitelist()
+	def on_cancel(self):
 		self.delete_document_after_cancle()
     
     

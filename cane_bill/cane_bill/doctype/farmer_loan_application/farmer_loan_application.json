@@ -48,6 +48,8 @@
   "section_break_jt2j7",
   "grantor",
   "column_break_lamh9",
+  "supplier",
+  "supplier_name",
   "drip_irrigation_company",
   "bank_name",
   "column_break_gpzwt",
@@ -269,6 +271,7 @@
   {
    "fieldname": "drip_irrigation_company",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Drip Irrigation Company",
    "options": "Drip Irrigation Company"
   },
@@ -347,6 +350,7 @@
   {
    "fieldname": "farmer_bank_branch",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Farmer Bank Branch",
    "options": "Bank Master"
   },
@@ -394,12 +398,24 @@
    "label": "Account interest Credit",
    "options": "Account",
    "reqd": 1
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fetch_from": "supplier.supplier_name",
+   "fieldname": "supplier_name",
+   "fieldtype": "Data",
+   "label": "Supplier Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-09-06 16:07:13.719385",
+ "modified": "2023-10-13 12:25:10.536096",
  "modified_by": "Administrator",
  "module": "cane_bill",
  "name": "Farmer Loan Application",

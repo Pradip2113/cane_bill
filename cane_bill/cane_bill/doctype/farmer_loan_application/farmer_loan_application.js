@@ -25,6 +25,25 @@ frappe.ui.form.on('Farmer Loan Application', {
 });
 
 frappe.ui.form.on('Farmer Loan Application', {
+	applicant: function(frm) {
+		frm.call({
+			method: 'target_Bank',//function name defined in python
+			doc: frm.doc, //current document
+		});
+		frm.set_query("surety_code", "grantor", function(doc, cdt, cdn) {
+			let d = locals[cdt][cdn];
+			return {
+				filters: [
+					['Farmer List', 'cane_registration_flag', '=', 1],
+				]
+			};
+		});
+
+	}
+});
+
+
+frappe.ui.form.on('Farmer Loan Application', {
 	loan_type: function(frm) {
 		frm.clear_table("installments_table")
 		frm.refresh_field('installments_table')
@@ -32,9 +51,21 @@ frappe.ui.form.on('Farmer Loan Application', {
 			method: 'loan_i_p',//function name defined in python
 			doc: frm.doc, //current document
 		});
+		frm.set_query("surety_code", "grantor", function(doc, cdt, cdn) {
+			let d = locals[cdt][cdn];
+			return {
+				filters: [
+					['Farmer List', 'cane_registration_flag', '=', 1],
+				]
+			};
+		});
 
 	}
 });
+
+
+
+
 
 frappe.ui.form.on('Farmer Loan Application', {
 	loan_amount: function(frm) {
